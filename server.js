@@ -22,8 +22,9 @@ app.use(myMiddleWare);
 
 app.get("/", async (req, res) => {
   try {
-    const allItems = await db.Item.find({}, { name: 1, quantity: 1 });
+    const allItems = await db.Item.find({});
     res.json(allItems);
+    console.log(allItems);
   } catch (err) {
     console.log(err.message);
   }
@@ -33,10 +34,8 @@ app.post("/", async (req, res) => {
   try {
     const clientData = req.body;
     await db.Item.remove();
-    const allItems = await db.Item.insertMany([...req.body], {
-      name: 1,
-      quantity: 1,
-    });
+    const allItems = await db.Item.insertMany([...req.body]);
+    console.log(allItems);
     res.json(allItems);
   } catch (err) {
     console.log(err.message);

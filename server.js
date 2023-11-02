@@ -8,11 +8,11 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const io = require('socket.io')(3001, {
-  cors: {
-    origin : ['http://localhost:3000']
-  }
-})
+// const io = require('socket.io')(3001, {
+//   cors: {
+//     origin : ['http://localhost:3000']
+//   }
+// })
 
 // middlewares
 // parse application/x-www-form-urlencoded
